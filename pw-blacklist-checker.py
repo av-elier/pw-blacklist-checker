@@ -29,7 +29,7 @@ blacklist_items = [
 
 def main():
     name = sys.argv[1]
-    name = 'Aмурa' # uncomment and change for some really weird nicknames
+    name = 'пиписинка' # uncomment and change for some really weird nicknames
     
     for blacklist_item in blacklist_items:
         quoted_url = blacklist_item.split(" ")[1]
