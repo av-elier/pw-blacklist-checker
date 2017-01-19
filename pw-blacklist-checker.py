@@ -3,6 +3,8 @@ import re
 import sys
 import uncurl
 
+from name import name
+
 blacklist_items = [
     "curl 'http://concordia-pw.ru/chernyy-spisok/' -H 'Accept-Encoding: gzip, deflate, sdch' -H 'Accept-Language: ru,en;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 YaBrowser/16.11.1.673 Yowser/2.5 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Referer: http://concordia-pw.ru/forum/forum_2' -H 'Cookie: forum_last=1484669607; dle_user_id=8; dle_password=827ccb0eea8a706c4c34a16891f84e7b; dle_forum_views=%2C3149; PHPSESSID=6760bc8c357d13faa67a7e070b24a615; dle_newpm=0; dle_forum_sessions=6760bc8c357d13faa67a7e070b24a615' -H 'Connection: keep-alive' --compressed",
     "curl 'http://murrclan.ru/viewtopic.php?id=287' -H 'Accept-Encoding: gzip, deflate, sdch' -H 'Accept-Language: ru,en;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.100 YaBrowser/16.11.1.673 Yowser/2.5 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Cache-Control: max-age=0' -H 'Cookie: PHPSESSID=a6b235a05311c8d76e23d92ffce4e9c9; incap_ses_450_792128=KjnjWiu0gnyLYg/U5bg+BlFDflgAAAAA77LrxJkkDZJvL8qVeXR8DA==; _ym_uid=1484669777361423729; incap_ses_262_792128=NZ1FegtR63axlP3kwc+iA/9cflgAAAAA1x2ZeA1lrB9pMPJDqc4ouA==; _ym_isad=1; visid_incap_792128=SujvpuDZRZm16v76zG9YcFFDflgAAAAAQkIPAAAAAACAcJJ5ASWT8oOoMvd+TEf39PgyZrrhXHi3; incap_ses_514_792128=wddjSrR5E2ecsB3faRgiBybgf1gAAAAAkNoMmTnQb2iDz5CGTquixA==; _ym_visorc_16138606=w' -H 'Connection: keep-alive' -H 'If-Modified-Since: Wed, 18 Jan 2017 21:37:45 GMT' --compressed",
@@ -28,8 +30,6 @@ blacklist_items = [
 ]
 
 def main():
-    name = sys.argv[1]
-    name = 'пиписинка' # uncomment and change for some really weird nicknames
     
     for blacklist_item in blacklist_items:
         quoted_url = blacklist_item.split(" ")[1]
