@@ -1,1 +1,1 @@
-name = '~ЛоКс~'
+name = "Disco80's"
