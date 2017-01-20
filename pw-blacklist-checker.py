@@ -2,6 +2,7 @@ import requests
 import re
 import sys
 import uncurl
+from html import unescape
 
 from name import name
 
@@ -37,10 +38,13 @@ def main():
 
         curl_py_code = uncurl.parse(blacklist_item)
         resp = eval(curl_py_code)
+        
+        fix_enc_name = name.encode('cp1251').decode('latin-1')
 
+        resp_text = unescape(resp.text)
         if resp.status_code != 200:
             print("    ????ERROR at %s" % (name, url))
-        elif name in resp.text:
+        elif name in resp_text or fix_enc_name in resp_text:
             print("    !!!!FOUND %s IN BLACKLIST (maybe) %s" % (name, url))
         else:
             print("        not found %s at %s" % (name, url))
