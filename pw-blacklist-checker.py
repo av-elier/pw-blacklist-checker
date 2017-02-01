@@ -43,7 +43,7 @@ def main():
 
         resp_text = unescape(resp.text)
         if resp.status_code != 200:
-            print("    ????ERROR at %s" % (name, url))
+            print("    ????ERROR at %s. Code is %s" % (name, resp.status_code))
         elif name in resp_text or fix_enc_name in resp_text:
             print("    !!!!FOUND %s IN BLACKLIST (maybe) %s" % (name, url))
         else:
